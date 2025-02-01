@@ -1,0 +1,18 @@
+<div class="coruse-card rounded text-center">
+  <div class="fw-bold p-2 course-title">
+    {{course.description}}
+
+  </div>
+  <div>
+    <img [src]="course.imageUrl" alt="angular" class="course-image" loading="lazy">
+  </div>
+  <div class="course-description p-2 text-start">
+
+      {{course.longDescription}}
+  </div>
+  <div class="p-2">
+    <button (click)="viewCourse()" class="btn btn-primary">Add to Cart</button>
+
+  </div>
+
+</div>

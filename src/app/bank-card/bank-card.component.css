@@ -1,0 +1,12 @@
+.course-card{
+  box-shadow: 0px 1px 16px 0px rgba(0, 0, 0, 2);
+}
+
+.course-title{
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.course-description{
+  user-select: none;
+}
