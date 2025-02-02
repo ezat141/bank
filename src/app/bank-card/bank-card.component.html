@@ -1,9 +1,10 @@
-<div class="coruse-card rounded text-center">
-  <div class="fw-bold p-2 course-title">
-    {{course.description}}
-
+<div class="coruse-card rounded text-center my-2"
+  [ngClass]="course.category === CategoryType.begineers
+    ? 'beginner' : 'advanced'">
+  <div class="fw-bold p-2 course-title" [ngStyle]="{color: course.category === CategoryType.begineers ? 'red' : 'green'}">
+    {{index}}: {{course.description}}
   </div>
-  <div>
+  <div *ngIf="course.imageUrl; else noImageAvilable">
     <img [src]="course.imageUrl" alt="angular" class="course-image" loading="lazy">
   </div>
   <div class="course-description p-2 text-start">
@@ -16,3 +17,8 @@
   </div>
 
 </div>
+
+<<ng-template #noImageAvilable>
+  <h1> No Image Available!</h1>
+</ng-template>
+

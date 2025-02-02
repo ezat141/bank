@@ -10,10 +10,28 @@
 </div>
 <div class="container-fluid">
   <div class=""row mt-2>
-    <div class="col-md-4 col-12">
-      <app-bank-card (viewCourseEvent)="onCardClicked($event)" [course]="beginnerCourses"></app-bank-card>
-      <app-bank-card (viewCourseEvent)="onCardClicked($event)" [course]="rxjsCourses"></app-bank-card>
-      <app-bank-card (viewCourseEvent)="onCardClicked($event)" [course]="ngrxCourses"></app-bank-card>
+    <div class="row">
+      <!-- <<ng-container>
+        <div class="col-md-4 col-12" *ngFor="let course of courses">
+          <app-bank-card [course]="course" (viewCourseEvent)="onCardClicked($event)"></app-bank-card>
+        </div>
+
+
+      </ng-container> -->
+      @for (course of courses; track trackCourse; let index = $index; let count= $count;
+        let first = $first; let last = $last; let even = $even; let odd = $odd) {
+          Courses Count: {{count}}
+        <div class="col-md-4 col-12">
+          <app-bank-card [course]="course" [index]="index"
+            [class.first-course]="first"
+            [class.last-course]="last"
+            [class.even-course]="even"
+            [class.odd-course]="odd"
+            (viewCourseEvent)="onCardClicked($event)"></app-bank-card>
+        </div>
+      }
+
+
 
     </div>
   </div>

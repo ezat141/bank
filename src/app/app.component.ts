@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BankCardComponent } from './bank-card/bank-card.component';
 import { CategoryType, ICourse } from './app.component.models';
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -54,6 +55,10 @@ export class AppComponent {
 
   onCardClicked(course: ICourse): void {
     console.log('on course clicked', course.description)
+  }
+
+  trackCourse(index: number, course: ICourse): number {
+    return course.id;
   }
 
 }
